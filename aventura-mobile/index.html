@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
+<title>Aventura Mobile · Motorhomes sustentables</title>
+<link rel="stylesheet" href="vendor/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="progress"></div>
+<header x-data="header" @keydown.escape.window="open=false">
+<div class="wrap nav">
+<a class="brand" href="#inicio">🚐 AVENTURA <span>MOBILE</span></a>
+<nav id="menu" :class="{open:open}" @click="open=false">
+<a href="#proyecto">El proyecto</a><a href="#beneficios">Beneficios</a><a href="#modelos">Modelos</a><a href="#costos">Costos</a><a href="#equipo">Equipo</a><a href="#ubicacion">Ubicación</a><a href="#contacto">Contacto</a>
+</nav>
+<div class="tools">
+<button class="icon-btn" type="button" @click="toggleTheme()" :aria-label="dark ? 'Activar modo claro' : 'Activar modo oscuro'" x-text="dark ? '☀️' : '🌙'">🌙</button>
+<button class="icon-btn burger" type="button" @click.stop="open=!open" :aria-expanded="open" aria-controls="menu" aria-label="Abrir menú">☰</button>
+</div>
+</div>
+</header>
+
+<div class="hero" id="inicio"><div class="wrap">
+<div>
+<span class="tag">Expo Contable 2026</span>
+<h1>Tu vehículo.<br>Tu casa.<br><span>Tu aventura.</span></h1>
+<p>Motorhomes sustentables con energía solar y autonomía real para viajar, trabajar y vivir sin depender de la red eléctrica.</p>
+<div class="btns"><a class="btn p" href="#proyecto">Conocé el proyecto</a><a class="btn s" href="#contacto">Contacto</a></div>
+</div>
+<img src="img/hero.jpg" alt="Logo de Aventura Mobile con un motorhome frente a las montañas al atardecer">
+</div></div>
+
+<div class="stats"><div class="wrap grid4">
+<div><b data-count="72">72</b><small> hs</small><span>de autonomía sin conexión a la red</span></div>
+<div><b data-count="1200">1.200</b><small> W</small><span>de energía solar y eólica</span></div>
+<div><b data-count="10">10</b><span>unidades en el primer año</span></div>
+<div><b data-count="100">100</b><small>%</small><span>energía renovable</span></div>
+</div></div>
+
+<section id="proyecto"><div class="wrap two">
+<div data-anim="left">
+<h2>De qué trata el emprendimiento</h2>
+<p class="lead" style="margin-bottom:14px">Aventura Mobile Argentina S.A.S. diseña y comercializa motorhomes sustentables y servicios de camperización ecológica, equipados con paneles solares y baterías recargables.</p>
+<p style="color:var(--muted)">Nace para resolver un problema actual: viajar en motorhome implica mucho consumo de combustible y dependencia de servicios externos. Nuestra propuesta combina comodidad, movilidad y cuidado del medio ambiente, con un diseño pensado para las rutas argentinas.</p>
+<p style="color:var(--muted)">Está dirigido a jóvenes y adultos viajeros, familias, nómades digitales y amantes de la naturaleza.</p>
+</div>
+<img src="img/motorhome.jpg" data-anim="right" alt="Motorhome estacionado en un camping entre árboles">
+</div></section>
+
+<section id="beneficios" class="alt"><div class="wrap">
+<div class="head-row"><div><h2>Beneficios</h2>
+<p class="lead">Lo que hace diferente a Aventura Mobile.</p></div><div id="lottie-sol" class="lottie" role="img" aria-label="Sol animado"></div></div>
+<div class="grid">
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">☀️</div><h3>Autonomía energética</h3><p>Paneles solares y baterías para viajar hasta 72 horas sin conexión a la red.</p></div>
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">💰</div><h3>Ahorro económico</h3><p>Menos gasto en combustible y en camping con conexión eléctrica.</p></div>
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🌿</div><h3>Cuidado ambiental</h3><p>Energía renovable y materiales reciclados o de bajo impacto.</p></div>
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">💻</div><h3>Trabajo y vivienda</h3><p>Energía para notebook, heladera e internet: una casa y oficina móvil.</p></div>
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🛣️</div><h3>Diseño argentino</h3><p>Pensado para nuestras rutas y para el frío y calor extremos.</p></div>
+<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🔧</div><h3>Servicio completo</h3><p>Instalación de kit solar, mantenimiento de baterías y asesoría.</p></div>
+</div>
+</div></section>
+
+<section id="modelos"><div class="wrap">
+<h2>Nuestros modelos</h2>
+<p class="lead">Deslizá para conocer la línea de Aventura Mobile.</p>
+<div class="swiper models">
+<div class="swiper-wrapper">
+<article class="swiper-slide mslide"><img src="img/hero.jpg" alt="Motorhome frente a montañas al atardecer"><div class="mbody"><span class="badge">Modelo</span><h3>Patagonia</h3><p>Para las rutas del sur: aislación térmica pensada para el frío y calor extremos.</p><ul><li>800 W en paneles solares</li><li>Aerogenerador portátil de 400 W</li><li>Batería de litio de 200 Ah</li><li>Meta: 6 unidades el primer año</li></ul></div></article>
+<article class="swiper-slide mslide"><img src="img/motorhome.jpg" alt="Motorhome en un camping entre árboles"><div class="mbody"><span class="badge">Modelo</span><h3>Costa</h3><p>Para recorrer la costa con autonomía de 72 horas, sin depender de campings con electricidad.</p><ul><li>800 W en paneles solares</li><li>Aerogenerador portátil de 400 W</li><li>Batería de litio de 200 Ah</li><li>Meta: 4 unidades el primer año</li></ul></div></article>
+<article class="swiper-slide mslide"><img src="img/fachada.jpg" alt="Fachada del local de Aventura Mobile"><div class="mbody"><span class="badge">Servicio</span><h3>Camperización</h3><p>Instalación de kit solar, mantenimiento de baterías y asesoría para la vida nómade.</p><ul><li>Relevamiento de consumo</li><li>Diseño del sistema a medida</li><li>Presupuesto y financiamiento</li><li>Instalación en nuestro local</li></ul></div></article>
+</div>
+<div class="swiper-pagination"></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+</div>
+<p class="note">Imágenes ilustrativas.</p>
+</div></section>
+
+<section id="costos" class="alt"><div class="wrap">
+<h2>Costos y precio</h2>
+<p class="lead">Así se distribuye el costo estimado de fabricar un motorhome, según nuestra planilla de costos.</p>
+<div class="two">
+<div class="chart-box"><canvas id="chart-costos" role="img" aria-label="Gráfico circular con la distribución del costo del motorhome"></canvas></div>
+<div>
+<ul id="legend" class="legend"></ul>
+<div class="money">
+<div><span>Costo estimado</span><b data-count="35000" data-prefix="USD ">USD 35.000</b></div>
+<div><span>Precio sugerido</span><b data-count="43750" data-prefix="USD ">USD 43.750</b></div>
+<div><span>Ganancia (25%)</span><b data-count="8750" data-prefix="USD ">USD 8.750</b></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section id="equipo"><div class="wrap">
+<h2>Nuestro equipo</h2>
+<p class="lead">Proyecto presentado por estudiantes de la materia Proyecto y Gestión de Microemprendimientos.</p>
+<div class="meta"><span>🎓 5º Año · Economía y Administración T.T.</span><span>🏫 Instituto Superior Santa Catalina</span><span>📍 Posadas, Misiones</span></div>
+<div class="grid">
+<div class="card person"><div class="av">VG</div><h3>Valentín Gall</h3><div class="role">Gerente General</div></div>
+<div class="card person"><div class="av">BD</div><h3>Brenda Duarte</h3><div class="role">Marketing y Comunicación</div></div>
+<div class="card person"><div class="av">GA</div><h3>Gianluca Aldana</h3><div class="role">Ventas y Logística</div></div>
+<div class="card person"><div class="av">SR</div><h3>Santiago Rodriguez</h3><div class="role">Mantenimiento y Técnica</div></div>
+<div class="card person"><div class="av">MV</div><h3>Milagros Villagra</h3><div class="role">Administración y Finanzas</div></div>
+</div>
+<p class="small">Docentes responsables: Patricia Fretes, Karina Gomez, Laura Chagas, Daniela Fabiu y Cabrera.</p>
+</div></section>
+
+<section id="ubicacion" class="alt"><div class="wrap">
+<h2>Dónde estamos</h2>
+<p class="lead">Barrio Villa Dolores, Posadas, Misiones · Av. Cmte. Buchardo y Av. República Oriental del Uruguay. Una zona cercana a rutas de alto tránsito, con terreno amplio para exhibición y estacionamiento.</p>
+<div class="map-box" data-anim="left">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.6891029583207!2d-55.904397225389054!3d-27.397674776361402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bef9e7a910dd%3A0x2e3d8e0bc8485178!2sAv.%20Cmte.%20Buchardo%20%26%20Av.%20Rep%C3%BAblica%20Oriental%20del%20Uruguay%2C%20N3301%20Posadas%2C%20Misiones!5e1!3m2!1ses-419!2sar!4v1792037816641!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Mapa de Aventura Mobile en Villa Dolores, Posadas" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  <a class="btn p" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Av+Comandante+Buchardo+y+Av+Republica+Oriental+del+Uruguay+Posadas+Misiones">📍 Cómo llegar</a>
+</div>
+</div></section>
+
+<div class="quote"><div class="wrap">
+<h2 class="sl">Libertad <span>sin enchufes.</span></h2>
+<h2 class="sl" style="margin-top:6px">Viajá lejos. <span>Cuidá el camino.</span></h2>
+<p>“La educación también es un viaje, y nosotros elegimos el destino.”</p>
+</div></div>
+
+<footer id="contacto">
+<div class="wrap foot">
+<div class="f-col">
+<img src="img/logo-instituto.jpg" alt="Logo del Instituto Superior Santa Catalina">
+<strong>Aventura Mobile Argentina S.A.S.</strong>
+<p>Expo Contable 2026<br>Instituto Superior Santa Catalina<br>Posadas, Misiones</p>
+</div>
+<div class="f-col">
+<h3>Contacto</h3>
+<a id="link-tel" href="tel:+543765179631">📞 3765 179631</a>
+<a id="link-wa" href="https://wa.me/5493765179631">💬 WhatsApp</a>
+<a id="link-ig" href="#" hidden>📷 Instagram</a>
+</div>
+<div class="f-col">
+<h3>Ubicación</h3>
+<p>Barrio Villa Dolores<br>Av. Cmte. Buchardo y Av. República Oriental del Uruguay<br>Posadas, Misiones</p>
+</div>
+</div>
+<div class="wrap copy">© <span id="anio">2026</span> Aventura Mobile · Proyecto escolar</div>
+</footer>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/swiper-bundle.min.js" defer></script>
+<script src="vendor/vanilla-tilt.min.js" defer></script>
+<script src="vendor/lottie_light.min.js" defer></script>
+<script src="vendor/chart.umd.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/sol-animation.js" defer></script>
+<script src="js/animations.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="vendor/alpine.min.js" defer></script>
+</body>
+</html>
