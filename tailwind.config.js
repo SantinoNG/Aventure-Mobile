@@ -1,0 +1,1 @@
+module.exports={content:['./index.html'],theme:{extend:{colors:{forest:'#1E3A2B',sand:'#D4A373',sandd:'#C68B59',paper:'#FAFAFA',night:'#111827',ink:'#1F2937'},fontFamily:{display:['"Space Grotesk"','ui-sans-serif','system-ui','sans-serif'],body:['Inter','ui-sans-serif','system-ui','sans-serif']}}}}

@@ -1,158 +1,935 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
-<title>Aventura Mobile · Motorhomes sustentables</title>
-<link rel="stylesheet" href="vendor/swiper-bundle.min.css">
+<html lang="es" class="scroll-smooth"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aventura Mobile · Motorhomes sustentables y camperización solar</title>
+<meta name="description" content="Motorhomes sustentables con energía solar y eólica, diseñados para las rutas argentinas. Proyecto escolar de Posadas, Misiones.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E3A2B'/%3E%3Cpath d='M6 24 13 11l4 7 3-4 6 10z' fill='%23D4A373'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<div id="progress"></div>
-<header x-data="header" @keydown.escape.window="open=false">
-<div class="wrap nav">
-<a class="brand" href="#inicio">AVENTURA <span>MOBILE</span></a>
-<nav id="menu" :class="{open:open}" @click="open=false">
-<a href="#proyecto">El proyecto</a><a href="#beneficios">Beneficios</a><a href="#modelos">Modelos</a><a href="#costos">Costos</a><a href="#equipo">Equipo</a><a href="#ubicacion">Ubicación</a><a href="#contacto">Contacto</a>
-</nav>
-<div class="tools">
-<button class="icon-btn" type="button" @click="toggleTheme()" :aria-label="dark ? 'Activar modo claro' : 'Activar modo oscuro'" x-text="dark ? '☀️' : '🌙'">🌙</button>
-<button class="icon-btn burger" type="button" @click.stop="open=!open" :aria-expanded="open" aria-controls="menu" aria-label="Abrir menú">☰</button>
-</div>
-</div>
-</header>
+<body class="bg-paper font-body text-ink antialiased">
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<header class="sticky top-4 z-50 px-4"><div class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-white/40 bg-white/60 px-4 py-3 shadow-lg shadow-black/5 backdrop-blur-md">
+<a href="#inicio" class="flex items-center gap-3"><span class="font-display text-lg font-bold tracking-tight text-forest">AVENTURA <span class="text-sandd">MOBILE</span></span><span class="hidden items-center gap-1 rounded-full bg-forest/10 px-3 py-1 text-xs font-semibold text-forest sm:inline-flex"><svg class="w-3.5 h-3.5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" />
+  <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" />
+</svg>Sustentabilidad en Ruta</span></a>
+<nav class="hidden gap-6 text-sm font-medium lg:flex"><a href="#modelos" class="text-forest/80 transition hover:text-forest">Modelos</a><a href="#simulador" class="text-forest/80 transition hover:text-forest">Simulador</a><a href="#costos" class="text-forest/80 transition hover:text-forest">Costos</a><a href="#faq" class="text-forest/80 transition hover:text-forest">FAQ</a><a href="#equipo" class="text-forest/80 transition hover:text-forest">Equipo</a><a href="#ubicacion" class="text-forest/80 transition hover:text-forest">Ubicación</a></nav>
+<div class="flex items-center gap-2"><a href="#cotizar" class="hidden rounded-xl bg-forest px-4 py-2 text-sm font-semibold text-white transition hover:bg-forest/90 sm:inline-flex">Cotizar Camperización</a><button id="burger" type="button" aria-label="Abrir menú" class="rounded-xl p-2 text-forest hover:bg-black/5 lg:hidden"><svg class="w-6 h-6" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg></button></div></div>
+<div id="mmenu" class="mx-auto mt-2 hidden max-w-6xl flex-col gap-2 rounded-2xl bg-white/90 p-4 shadow-lg backdrop-blur-md lg:hidden"><a href="#modelos" class="py-1 font-medium text-forest">Modelos</a><a href="#simulador" class="py-1 font-medium text-forest">Simulador</a><a href="#costos" class="py-1 font-medium text-forest">Costos</a><a href="#faq" class="py-1 font-medium text-forest">FAQ</a><a href="#equipo" class="py-1 font-medium text-forest">Equipo</a><a href="#ubicacion" class="py-1 font-medium text-forest">Ubicación</a><a href="#cotizar" class="mt-2 rounded-xl bg-forest px-4 py-3 text-center font-semibold text-white">Cotizar Camperización</a></div></header>
 
-<div class="hero" id="inicio"><div class="wrap">
-<div>
-<span class="tag">Expo Contable 2026</span>
-<h1>Tu vehículo.<br>Tu casa.<br><span>Tu aventura.</span></h1>
-<p>Motorhomes sustentables con energía solar y autonomía real para viajar, trabajar y vivir sin depender de la red eléctrica.</p>
-<div class="btns"><a class="btn p" href="#proyecto">Conocé el proyecto</a><a class="btn s" href="#contacto">Contacto</a></div>
-</div>
-<img src="img/hero.jpg" alt="Logo de Aventura Mobile con un motorhome frente a las montañas al atardecer">
-</div></div>
+<!-- ===== INICIO ===== -->
+<section id="inicio" class="relative -mt-24 flex min-h-[92vh] items-center overflow-hidden bg-night pt-24 text-white">
+<img src="img/hero.jpg" alt="" class="absolute bottom-0 left-0 h-[160%] w-full object-cover object-bottom"><div class="absolute inset-0 bg-gradient-to-r from-night/95 via-night/70 to-forest/40"></div>
+<div class="relative mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center"><div>
+<span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm backdrop-blur-md"><svg class="w-4 h-4 text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+  <path d="M22 10v6" />
+  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+</svg>Expo Contable 2026 · Proyecto escolar</span>
+<h1 class="mt-6 text-balance font-display text-5xl font-bold leading-[1.05] sm:text-6xl">Libertad en ruta, <span class="text-sand">autonomía infinita.</span></h1>
+<p class="mt-6 max-w-xl text-lg text-gray-200">Motorhomes sustentables con energía solar y eólica, pensados para las rutas argentinas: viajá, trabajá y viví sin depender de la red eléctrica.</p>
+<div class="mt-8 flex flex-wrap gap-3"><a href="#modelos" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition bg-sand text-forest hover:bg-sandd">Ver Modelos <svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg></a><a href="#equipo" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition border border-white/50 text-white hover:bg-white/10">Proyecto Escolar</a></div></div>
+<div class="flex flex-wrap gap-4 lg:flex-col lg:items-end"><div class="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md"><svg class="w-7 h-7 text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 7-3 5h4l-3 5" />
+  <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+  <path d="M22 14v-4" />
+  <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
+</svg><p class="mt-2 font-display text-3xl font-bold">72 hs</p><p class="text-sm text-gray-200">Autonomía real</p></div><div class="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md"><svg class="w-7 h-7 text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" />
+  <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" />
+</svg><p class="mt-2 font-display text-3xl font-bold">100%</p><p class="text-sm text-gray-200">Renovable</p></div></div></div></section>
 
-<div class="stats"><div class="wrap grid4">
-<div><b data-count="72">72</b><small> hs</small><span>de autonomía sin conexión a la red</span></div>
-<div><b data-count="1200">1.200</b><small> W</small><span>de energía solar y eólica</span></div>
-<div><b data-count="10">10</b><span>unidades en el primer año</span></div>
-<div><b data-count="100">100</b><small>%</small><span>energía renovable</span></div>
-</div></div>
+<section class="bg-night text-white"><div class="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4"><div class="px-6 py-8 text-center max-md:[&:nth-child(n+3)]:border-t border-white/10"><div class="font-display text-4xl font-bold text-sand md:text-5xl"><span data-n="72">72</span><span class="text-2xl"> hs</span></div><p class="mt-2 text-sm text-gray-400">Autonomía sin conexión a la red</p></div><div class="px-6 py-8 text-center max-md:[&:nth-child(n+3)]:border-t border-white/10"><div class="font-display text-4xl font-bold text-sand md:text-5xl"><span data-n="1200">1.200</span><span class="text-2xl"> W</span></div><p class="mt-2 text-sm text-gray-400">Energía solar y eólica</p></div><div class="px-6 py-8 text-center max-md:[&:nth-child(n+3)]:border-t border-white/10"><div class="font-display text-4xl font-bold text-sand md:text-5xl"><span data-n="10">10</span><span class="text-2xl"></span></div><p class="mt-2 text-sm text-gray-400">Unidades en el primer año</p></div><div class="px-6 py-8 text-center max-md:[&:nth-child(n+3)]:border-t border-white/10"><div class="font-display text-4xl font-bold text-sand md:text-5xl"><span data-n="100">100</span><span class="text-2xl">%</span></div><p class="mt-2 text-sm text-gray-400">Energía renovable</p></div></div></section>
 
-<section id="proyecto"><div class="wrap two">
-<div data-anim="left">
-<h2>De qué trata el emprendimiento</h2>
-<p class="lead" style="margin-bottom:14px">Aventura Mobile Argentina S.A.S. diseña y comercializa motorhomes sustentables y servicios de camperización ecológica, equipados con paneles solares y baterías recargables.</p>
-<p style="color:var(--muted)">Nace para resolver un problema actual: viajar en motorhome implica mucho consumo de combustible y dependencia de servicios externos. Nuestra propuesta combina comodidad, movilidad y cuidado del medio ambiente, con un diseño pensado para las rutas argentinas.</p>
-<p style="color:var(--muted)">Está dirigido a jóvenes y adultos viajeros, familias, nómades digitales y amantes de la naturaleza.</p>
-</div>
-<img src="img/motorhome.jpg" data-anim="right" alt="Motorhome estacionado en un camping entre árboles">
-</div></section>
+<!-- ===== MODELOS ===== -->
+<section id="modelos" class="py-24"><div class="mx-auto max-w-6xl px-6"><div class="rv max-w-2xl"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">Línea Aventura Mobile</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Modelos y servicios</h2><p class="mt-3 text-gray-600">Dos modelos propios, 100% eléctricos y off-grid, y un servicio de camperización a medida.</p></div>
+<div class="mt-12 grid gap-6 md:grid-cols-3"><article class="rv group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div class="relative h-52 overflow-hidden"><img src="img/hero.jpg" alt="Patagonia" loading="lazy" class="h-full w-full object-cover object-bottom transition duration-500 group-hover:scale-105"><span class="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-sand px-3 py-1 text-xs font-bold text-forest"><svg class="w-3.5 h-3.5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m10 20-1.25-2.5L6 18" />
+  <path d="M10 4 8.75 6.5 6 6" />
+  <path d="m14 20 1.25-2.5L18 18" />
+  <path d="m14 4 1.25 2.5L18 6" />
+  <path d="m17 21-3-6h-4" />
+  <path d="m17 3-3 6 1.5 3" />
+  <path d="M2 12h6.5L10 9" />
+  <path d="m20 10-1.5 2 1.5 2" />
+  <path d="M22 12h-6.5L14 15" />
+  <path d="m4 10 1.5 2L4 14" />
+  <path d="m7 21 3-6-1.5-3" />
+  <path d="m7 3 3 6h4" />
+</svg>Ideal frío extremo</span></div><div class="flex flex-1 flex-col p-6"><p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Ficha técnica</p><h3 class="font-display text-2xl font-bold text-forest">Patagonia</h3><p class="mt-2 text-sm text-gray-600">Para las rutas del sur: aislación térmica pensada para frío y calor extremos.</p><dl class="mt-4 flex-1"><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>Paneles solares</dt><dd class="font-semibold text-forest">800 W</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+  <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
+  <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
+</svg>Aerogenerador portátil</dt><dd class="font-semibold text-forest">400 W</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 7-3 5h4l-3 5" />
+  <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+  <path d="M22 14v-4" />
+  <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
+</svg>Batería de litio</dt><dd class="font-semibold text-forest">200 Ah</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg>Meta primer año</dt><dd class="font-semibold text-forest">6 unidades</dd></div></dl><a href="#cotizar" class="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-forest px-4 py-3 text-sm font-semibold text-white transition hover:bg-forest/90">Cotizar <svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg></a></div></article><article class="rv group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div class="relative h-52 overflow-hidden"><img src="img/motorhome.jpg" alt="Costa" loading="lazy" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"><span class="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-sand px-3 py-1 text-xs font-bold text-forest"><svg class="w-3.5 h-3.5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 12q2.5 2 5 0t5 0 5 0 5 0" />
+  <path d="M2 19q2.5 2 5 0t5 0 5 0 5 0" />
+  <path d="M2 5q2.5 2 5 0t5 0 5 0 5 0" />
+</svg>Especial costa</span></div><div class="flex flex-1 flex-col p-6"><p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Ficha técnica</p><h3 class="font-display text-2xl font-bold text-forest">Costa</h3><p class="mt-2 text-sm text-gray-600">Autonomía de 72 horas para recorrer la costa sin depender de campings con electricidad.</p><dl class="mt-4 flex-1"><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>Paneles solares</dt><dd class="font-semibold text-forest">800 W</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+  <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
+  <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
+</svg>Aerogenerador portátil</dt><dd class="font-semibold text-forest">400 W</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 7-3 5h4l-3 5" />
+  <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+  <path d="M22 14v-4" />
+  <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
+</svg>Batería de litio</dt><dd class="font-semibold text-forest">200 Ah</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg>Meta primer año</dt><dd class="font-semibold text-forest">4 unidades</dd></div></dl><a href="#cotizar" class="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-forest px-4 py-3 text-sm font-semibold text-white transition hover:bg-forest/90">Cotizar <svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg></a></div></article><article class="rv group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div class="relative h-52 overflow-hidden"><img src="img/fachada.jpg" alt="Camperización" loading="lazy" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"><span class="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-sand px-3 py-1 text-xs font-bold text-forest"><svg class="w-3.5 h-3.5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg>Servicio</span></div><div class="flex flex-1 flex-col p-6"><p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Ficha técnica</p><h3 class="font-display text-2xl font-bold text-forest">Camperización</h3><p class="mt-2 text-sm text-gray-600">Instalación de kit solar, mantenimiento de baterías y asesoría para la vida nómade.</p><dl class="mt-4 flex-1"><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>Kit solar</dt><dd class="font-semibold text-forest">Instalación</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 7-3 5h4l-3 5" />
+  <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+  <path d="M22 14v-4" />
+  <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
+</svg>Baterías</dt><dd class="font-semibold text-forest">Mantenimiento</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />
+</svg>Asesoría</dt><dd class="font-semibold text-forest">Vida nómade</dd></div><div class="flex items-center justify-between border-b border-dashed border-black/10 py-2.5 text-sm"><dt class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" />
+</svg>Presupuesto</dt><dd class="font-semibold text-forest">A medida</dd></div></dl><a href="#cotizar" class="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-forest px-4 py-3 text-sm font-semibold text-white transition hover:bg-forest/90">Cotizar <svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg></a></div></article></div><p class="mt-4 text-xs text-gray-400">Imágenes ilustrativas.</p></div></section>
 
-<section id="beneficios" class="alt"><div class="wrap">
-<div class="head-row"><div><h2>Beneficios</h2>
-<p class="lead">Lo que hace diferente a Aventura Mobile.</p></div><div id="lottie-sol" class="lottie" role="img" aria-label="Sol animado"></div></div>
-<div class="grid">
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">☀️</div><h3>Autonomía energética</h3><p>Paneles solares y baterías para viajar hasta 72 horas sin conexión a la red.</p></div>
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">💰</div><h3>Ahorro económico</h3><p>Menos gasto en combustible y en camping con conexión eléctrica.</p></div>
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🌿</div><h3>Cuidado ambiental</h3><p>Energía renovable y materiales reciclados o de bajo impacto.</p></div>
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">💻</div><h3>Trabajo y vivienda</h3><p>Energía para notebook, heladera e internet: una casa y oficina móvil.</p></div>
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🛣️</div><h3>Diseño argentino</h3><p>Pensado para nuestras rutas y para el frío y calor extremos.</p></div>
-<div class="card" data-tilt data-tilt-max="8" data-tilt-scale="1.02" data-tilt-glare data-tilt-max-glare="0.15"><div class="ic">🔧</div><h3>Servicio completo</h3><p>Instalación de kit solar, mantenimiento de baterías y asesoría.</p></div>
-</div>
-</div></section>
+<!-- ===== SIMULADOR ===== -->
+<section id="simulador" class="bg-white py-24"><div class="mx-auto max-w-6xl px-6"><div class="rv max-w-2xl"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">Herramienta interactiva</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Simulador de autonomía solar</h2><p class="mt-3 text-gray-600">Elegí tus dispositivos y las horas de sol: calculamos cuánto durás con el kit Aventura Mobile.</p></div>
+<div class="rv mt-10 grid gap-8 lg:grid-cols-5"><div class="lg:col-span-3"><div class="grid gap-3 sm:grid-cols-2"><button type="button" data-w="25" aria-pressed="true" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" />
+</svg><span class="flex-1 font-medium">Luces LED</span><span class="text-xs opacity-70">25 W</span></button><button type="button" data-w="45" aria-pressed="true" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z" />
+  <path d="M5 10h14" />
+  <path d="M15 7v6" />
+</svg><span class="flex-1 font-medium">Heladera 12 V</span><span class="text-xs opacity-70">45 W</span></button><button type="button" data-w="60" aria-pressed="true" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" />
+  <path d="M20.054 15.987H3.946" />
+</svg><span class="flex-1 font-medium">Notebook</span><span class="text-xs opacity-70">60 W</span></button><button type="button" data-w="15" aria-pressed="false" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+  <path d="M12 18h.01" />
+</svg><span class="flex-1 font-medium">Celulares</span><span class="text-xs opacity-70">15 W</span></button><button type="button" data-w="50" aria-pressed="false" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 12a6 6 0 00-6-6" />
+  <path d="M2.824 10.459a8 8 0 0010.717 10.717c.558-.276.623-1.012.183-1.452l-9.448-9.448c-.44-.44-1.176-.375-1.452.183" />
+  <path d="M22 12A10 10 0 0012 2" />
+  <path d="m9 15 4-4" />
+</svg><span class="flex-1 font-medium">Internet satelital</span><span class="text-xs opacity-70">50 W</span></button><button type="button" data-w="30" aria-pressed="false" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z" />
+  <path d="M12 12v.01" />
+</svg><span class="flex-1 font-medium">Ventilador</span><span class="text-xs opacity-70">30 W</span></button><button type="button" data-w="70" aria-pressed="false" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m17 2-5 5-5-5" />
+  <rect width="20" height="15" x="2" y="7" rx="2" />
+</svg><span class="flex-1 font-medium">Televisor</span><span class="text-xs opacity-70">70 W</span></button><button type="button" data-w="40" aria-pressed="false" class="dev flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 text-left text-sm transition hover:border-forest aria-pressed:border-forest aria-pressed:bg-forest aria-pressed:text-white"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+  <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+</svg><span class="flex-1 font-medium">Bomba de agua</span><span class="text-xs opacity-70">40 W</span></button></div>
+<div class="mt-6 rounded-2xl border border-black/10 p-5"><label for="sun" class="flex items-center justify-between text-sm font-medium"><svg class="w-5 h-5 text-sandd" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg><span class="ml-2 flex-1">Horas de sol por día</span><b id="sun-v" class="text-forest">4,5</b></label><input id="sun" type="range" min="2" max="7" step="0.5" value="4.5" class="mt-3 w-full accent-sandd"></div></div>
+<div class="rounded-3xl bg-night p-8 text-white lg:col-span-2"><p class="text-sm text-gray-400">Consumo seleccionado: <b id="r-w" class="text-white">0 W</b></p>
+<div class="mt-4 font-display text-6xl font-bold text-sand"><span id="r-h">0</span><span class="text-2xl"> hs</span></div><p class="text-sm text-gray-400">de autonomía solo con batería</p>
+<div class="mt-6 h-3 overflow-hidden rounded-full bg-white/10"><div id="r-bar" class="h-full rounded-full bg-sand transition-all duration-500" style="width:0"></div></div>
+<p class="mt-2 flex justify-between text-xs text-gray-400"><span>0 hs</span><span>Meta del proyecto: 72 hs</span></p><p id="r-note" class="mt-5 text-sm leading-relaxed text-gray-300"></p></div></div>
+<p class="mt-6 text-xs text-gray-500">Estimación orientativa: batería de litio de 200 Ah a 12 V (80 % utilizable) y 800 W de paneles con 75 % de eficiencia. No reemplaza un cálculo técnico.</p></div></section>
 
-<section id="modelos"><div class="wrap">
-<h2>Nuestros modelos</h2>
-<p class="lead">Deslizá para conocer la línea de Aventura Mobile.</p>
-<div class="swiper models">
-<div class="swiper-wrapper">
-<article class="swiper-slide mslide"><img src="img/hero.jpg" alt="Motorhome frente a montañas al atardecer"><div class="mbody"><span class="badge">Modelo</span><h3>Patagonia</h3><p>Para las rutas del sur: aislación térmica pensada para el frío y calor extremos.</p><ul><li>800 W en paneles solares</li><li>Aerogenerador portátil de 400 W</li><li>Batería de litio de 200 Ah</li><li>Meta: 6 unidades el primer año</li></ul></div></article>
-<article class="swiper-slide mslide"><img src="img/motorhome.jpg" alt="Motorhome en un camping entre árboles"><div class="mbody"><span class="badge">Modelo</span><h3>Costa</h3><p>Para recorrer la costa con autonomía de 72 horas, sin depender de campings con electricidad.</p><ul><li>800 W en paneles solares</li><li>Aerogenerador portátil de 400 W</li><li>Batería de litio de 200 Ah</li><li>Meta: 4 unidades el primer año</li></ul></div></article>
-<article class="swiper-slide mslide"><img src="img/fachada.jpg" alt="Fachada del local de Aventura Mobile"><div class="mbody"><span class="badge">Servicio</span><h3>Camperización</h3><p>Instalación de kit solar, mantenimiento de baterías y asesoría para la vida nómade.</p><ul><li>Relevamiento de consumo</li><li>Diseño del sistema a medida</li><li>Presupuesto y financiamiento</li><li>Instalación en nuestro local</li></ul></div></article>
-</div>
-<div class="swiper-pagination"></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
-</div>
-<p class="note">Imágenes ilustrativas.</p>
-</div></section>
+<!-- ===== COSTOS ===== -->
+<section id="costos" class="py-24"><div class="mx-auto max-w-6xl px-6"><div class="rv max-w-2xl"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">Inversión</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Costos y precio</h2><p class="mt-3 text-gray-600">Así se distribuye el costo estimado de fabricar un motorhome, según la planilla de costos del proyecto.</p></div>
+<div class="rv mt-10 grid gap-10 rounded-3xl border border-black/5 bg-white p-6 shadow-sm md:p-10 lg:grid-cols-5"><div class="lg:col-span-3"><h3 class="font-display text-xl font-bold text-forest">Distribución del costo</h3>
+<div class="mt-5 flex h-6 gap-0.5 overflow-hidden rounded-full"><div title="Vehículo base (chasis) 40%" style="flex:40;background:#1E3A2B"></div><div title="Carrocería y estructura 14%" style="flex:14;background:#2F5D44"></div><div title="Interior y mobiliario 12%" style="flex:12;background:#D4A373"></div><div title="Sistema de energía solar 8%" style="flex:8;background:#C68B59"></div><div title="Equipamiento y confort 8%" style="flex:8;background:#6B8F71"></div><div title="Mano de obra 7%" style="flex:7;background:#9CA3AF"></div><div title="Agua y gas 5%" style="flex:5;background:#4B5563"></div><div title="Instalación eléctrica 4%" style="flex:4;background:#A7C4A0"></div><div title="Imprevistos y otros 3%" style="flex:3;background:#E5D3BC"></div></div><ul class="mt-6 grid gap-x-6 gap-y-3 text-sm text-gray-600 sm:grid-cols-2"><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#1E3A2B"></i>Vehículo base (chasis)<b class="ml-auto text-forest">40%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#2F5D44"></i>Carrocería y estructura<b class="ml-auto text-forest">14%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#D4A373"></i>Interior y mobiliario<b class="ml-auto text-forest">12%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#C68B59"></i>Sistema de energía solar<b class="ml-auto text-forest">8%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#6B8F71"></i>Equipamiento y confort<b class="ml-auto text-forest">8%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#9CA3AF"></i>Mano de obra<b class="ml-auto text-forest">7%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#4B5563"></i>Agua y gas<b class="ml-auto text-forest">5%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#A7C4A0"></i>Instalación eléctrica<b class="ml-auto text-forest">4%</b></li><li class="flex items-center gap-2"><i class="h-3 w-3 flex-none rounded" style="background:#E5D3BC"></i>Imprevistos y otros<b class="ml-auto text-forest">3%</b></li></ul></div>
+<div class="rounded-2xl bg-forest p-6 text-white lg:col-span-2"><div class="flex items-center gap-2 text-sand"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="16" height="20" x="4" y="2" rx="2" />
+  <line x1="8" x2="16" y1="6" y2="6" />
+  <line x1="16" x2="16" y1="14" y2="18" />
+  <path d="M16 10h.01" />
+  <path d="M12 10h.01" />
+  <path d="M8 10h.01" />
+  <path d="M12 14h.01" />
+  <path d="M8 14h.01" />
+  <path d="M12 18h.01" />
+  <path d="M8 18h.01" />
+</svg><b class="text-sm uppercase tracking-widest">Resumen financiero</b></div>
+<dl class="mt-5 space-y-4"><div class="flex items-center justify-between border-b border-white/15 pb-3"><dt class="text-gray-200">Costo estimado</dt><dd class="whitespace-nowrap font-display text-xl font-bold">USD 35.000</dd></div><div class="flex items-center justify-between border-b border-white/15 pb-3"><dt class="text-gray-200">Margen sugerido</dt><dd class="whitespace-nowrap font-display text-xl font-bold">25 %</dd></div><div class="flex items-center justify-between border-b border-white/15 pb-3"><dt class="text-gray-200">Precio sugerido</dt><dd class="whitespace-nowrap font-display text-2xl font-bold text-sand">USD 43.750</dd></div><div class="flex items-center justify-between"><dt class="text-gray-200">Ganancia estimada</dt><dd class="whitespace-nowrap font-display text-xl font-bold">USD 8.750</dd></div></dl><p class="mt-5 text-xs text-gray-300">Valores estimados; pueden variar según vehículo y proveedores.</p></div></div></div></section>
 
-<section id="costos" class="alt"><div class="wrap">
-<h2>Costos y precio</h2>
-<p class="lead">Así se distribuye el costo estimado de fabricar un motorhome, según nuestra planilla de costos.</p>
-<div class="two">
-<div class="chart-box"><canvas id="chart-costos" role="img" aria-label="Gráfico circular con la distribución del costo del motorhome"></canvas></div>
-<div>
-<ul id="legend" class="legend"></ul>
-<div class="money">
-<div><span>Costo estimado</span><b data-count="35000" data-prefix="USD ">USD 35.000</b></div>
-<div><span>Precio sugerido</span><b data-count="43750" data-prefix="USD ">USD 43.750</b></div>
-<div><span>Ganancia (25%)</span><b data-count="8750" data-prefix="USD ">USD 8.750</b></div>
-</div>
-</div>
-</div>
-</div></section>
+<!-- ===== COTIZAR ===== -->
+<section id="cotizar" class="bg-forest py-24 text-white"><div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2"><div class="rv min-w-0"><p class="text-sm font-semibold uppercase tracking-widest text-sand">Presupuesto</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-white">Cotizá tu camperización</h2><p class="mt-4 max-w-md text-gray-200">Contanos qué necesitás en tres pasos y te respondemos por WhatsApp con una propuesta a medida.</p>
+<ul class="mt-6 space-y-3 text-gray-100"><li class="flex gap-3"><svg class="w-5 h-5 flex-none text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>Relevamiento de tu consumo energético</li><li class="flex gap-3"><svg class="w-5 h-5 flex-none text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>Kit diseñado según tu uso</li><li class="flex gap-3"><svg class="w-5 h-5 flex-none text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>Presupuesto con materiales, mano de obra y garantía</li></ul></div>
+<div class="rv min-w-0 rounded-3xl bg-white p-6 text-ink shadow-2xl md:p-8"><div class="mb-6 flex gap-2" aria-hidden="true"><span class="dot h-1.5 flex-1 rounded-full bg-black/10 transition data-[on=true]:bg-sandd"></span><span class="dot h-1.5 flex-1 rounded-full bg-black/10 transition data-[on=true]:bg-sandd"></span><span class="dot h-1.5 flex-1 rounded-full bg-black/10 transition data-[on=true]:bg-sandd"></span></div>
+<div data-step class="space-y-3"><h3 class="font-display text-xl font-bold text-forest">1. ¿Qué necesitás?</h3><label class="block cursor-pointer"><input type="radio" name="tipo" value="Motorhome nuevo" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 19V9a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h2" />
+  <path d="M2 9h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2" />
+  <path d="M22 17v1a1 1 0 0 1-1 1H10v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9" />
+  <circle cx="8" cy="19" r="2" />
+</svg><span><b class="block text-sm">Motorhome nuevo</b><span class="text-xs text-gray-500">Modelo Patagonia o Costa</span></span></span></label><label class="block cursor-pointer"><input type="radio" name="tipo" value="Camperizar mi vehículo" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg><span><b class="block text-sm">Camperizar mi vehículo</b><span class="text-xs text-gray-500">Convertí tu van o furgón</span></span></span></label><label class="block cursor-pointer"><input type="radio" name="tipo" value="Kit solar para mi motorhome" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg><span><b class="block text-sm">Kit solar</b><span class="text-xs text-gray-500">Paneles, baterías e instalación</span></span></span></label></div>
+<div data-step hidden class="space-y-3"><h3 class="font-display text-xl font-bold text-forest">2. Contanos tu uso</h3><label class="block cursor-pointer"><input type="radio" name="uso" value="Viajes de fin de semana" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />
+</svg><span><b class="block text-sm">Viajes de fin de semana</b><span class="text-xs text-gray-500">Escapadas cortas</span></span></span></label><label class="block cursor-pointer"><input type="radio" name="uso" value="Vida nómade o trabajo remoto" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" />
+  <path d="M20.054 15.987H3.946" />
+</svg><span><b class="block text-sm">Vida nómade / trabajo remoto</b><span class="text-xs text-gray-500">Energía 24/7</span></span></span></label><label class="block cursor-pointer"><input type="radio" name="uso" value="Turismo en familia" class="peer sr-only"><span class="flex items-center gap-3 rounded-xl border border-black/10 p-4 transition hover:border-forest peer-checked:border-forest peer-checked:bg-forest/5 peer-focus-visible:ring-2 peer-focus-visible:ring-sandd"><svg class="w-6 h-6 flex-none text-forest" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" />
+</svg><span><b class="block text-sm">Turismo en familia</b><span class="text-xs text-gray-500">Comodidad y espacio</span></span></span></label><label class="block pt-1 text-sm font-medium">Ruta principal<select id="w-zona" class="mt-1 w-full rounded-xl border border-black/10 bg-white p-3"><option>Patagonia</option><option>Costa</option><option>Noreste y Misiones</option><option>Otra zona</option></select></label></div>
+<div data-step hidden class="space-y-3"><h3 class="font-display text-xl font-bold text-forest">3. Tus datos</h3><input id="w-nom" autocomplete="name" placeholder="Nombre y apellido" class="w-full rounded-xl border border-black/10 p-3"><input id="w-tel" type="tel" autocomplete="tel" placeholder="Teléfono" class="w-full rounded-xl border border-black/10 p-3"><textarea id="w-msg" rows="3" placeholder="Mensaje (opcional)" class="w-full rounded-xl border border-black/10 p-3"></textarea></div>
+<p id="w-err" class="mt-3 min-h-5 text-sm text-red-700" role="alert"></p><p id="w-ok" hidden class="mb-3 rounded-xl bg-forest/10 p-3 text-sm text-forest">¡Listo! Se abrió WhatsApp con tu consulta. Si no se abrió, escribinos desde el pie de página.</p>
+<div class="flex gap-3"><button id="w-back" type="button" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition border border-black/15 text-forest hover:bg-black/5"><svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>Atrás</button><button id="w-next" type="button" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition ml-auto bg-forest text-white hover:bg-forest/90">Siguiente <svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg></button><button id="w-send" type="button" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition ml-auto bg-sandd text-forest hover:bg-sand"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+</svg>Enviar por WhatsApp</button></div></div></div></section>
 
-<section id="equipo"><div class="wrap">
-<h2>Nuestro equipo</h2>
-<p class="lead">Proyecto presentado por estudiantes de la materia Proyecto y Gestión de Microemprendimientos.</p>
-<div class="meta"><span> 5º Año · Economía y Administración T.T.</span><span> Instituto Superior Santa Catalina</span><span> Posadas, Misiones</span></div>
-<div class="grid">
-<div class="card person"><div class="av">VG</div><h3>Valentín Gall</h3><div class="role">Gerente General</div></div>
-<div class="card person"><div class="av">BD</div><h3>Brenda Duarte</h3><div class="role">Marketing y Comunicación</div></div>
-<div class="card person"><div class="av">GA</div><h3>Gianluca Aldana</h3><div class="role">Ventas y Logística</div></div>
-<div class="card person"><div class="av">SR</div><h3>Santiago Rodriguez</h3><div class="role">Mantenimiento y Técnica</div></div>
-<div class="card person"><div class="av">MV</div><h3>Milagros Villagra</h3><div class="role">Administración y Finanzas</div></div>
-</div>
-<p class="small">Docentes responsables: Patricia Fretes, Karina Gomez, Laura Chagas, Daniela Fabiu y Cabrera.</p>
-</div></section>
+<!-- ===== FAQ ===== -->
+<section id="faq" class="py-24"><div class="mx-auto max-w-3xl px-6"><div class="rv text-center"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">Preguntas frecuentes</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Resolvemos tus dudas</h2></div><div class="mt-10 space-y-3"><details class="group rv rounded-2xl border border-black/5 bg-white p-5 shadow-sm"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-forest">¿Qué incluye la camperización y cómo es el proceso?<svg class="w-5 h-5 flex-none transition group-open:rotate-180" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><p class="mt-3 text-sm leading-relaxed text-gray-600">Empezamos con un contacto inicial y el relevamiento de tu consumo. Luego diseñamos el kit a medida, te damos un presupuesto formal y hacemos la instalación en nuestro local: preparación del techo, montaje de paneles, cableado y protecciones de seguridad.</p></details><details class="group rv rounded-2xl border border-black/5 bg-white p-5 shadow-sm"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-forest">¿Qué garantía tienen las baterías de litio?<svg class="w-5 h-5 flex-none transition group-open:rotate-180" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><p class="mt-3 text-sm leading-relaxed text-gray-600">El presupuesto formal detalla materiales, mano de obra y garantía. La cobertura de las baterías depende del fabricante y se informa por escrito antes de confirmar la compra.</p></details><details class="group rv rounded-2xl border border-black/5 bg-white p-5 shadow-sm"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-forest">¿Qué mantenimiento necesita el sistema solar?<svg class="w-5 h-5 flex-none transition group-open:rotate-180" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><p class="mt-3 text-sm leading-relaxed text-gray-600">Es bajo: limpiar los paneles con agua y un paño suave, revisar conexiones y controlar el estado de carga de las baterías. Ofrecemos servicio técnico de mantenimiento de baterías.</p></details><details class="group rv rounded-2xl border border-black/5 bg-white p-5 shadow-sm"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-forest">¿Qué formas de pago aceptan?<svg class="w-5 h-5 flex-none transition group-open:rotate-180" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><p class="mt-3 text-sm leading-relaxed text-gray-600">Tarjeta de débito y crédito, transferencia, efectivo y cheques con pago diferido. Trabajamos en pesos, dólares, reales, euros y guaraníes, y también orientamos sobre opciones de financiamiento.</p></details></div></div></section>
 
-<section id="ubicacion" class="alt"><div class="wrap">
-<h2>Dónde estamos</h2>
-<p class="lead">Barrio Villa Dolores, Posadas, Misiones · Av. Cmte. Buchardo y Av. República Oriental del Uruguay. Una zona cercana a rutas de alto tránsito, con terreno amplio para exhibición y estacionamiento.</p>
-<div class="map-box" data-anim="left">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.6891029583207!2d-55.904397225389054!3d-27.397674776361402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bef9e7a910dd%3A0x2e3d8e0bc8485178!2sAv.%20Cmte.%20Buchardo%20%26%20Av.%20Rep%C3%BAblica%20Oriental%20del%20Uruguay%2C%20N3301%20Posadas%2C%20Misiones!5e1!3m2!1ses-419!2sar!4v1792037816641!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Mapa de Aventura Mobile en Villa Dolores, Posadas" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-  <a class="btn p" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Av+Comandante+Buchardo+y+Av+Republica+Oriental+del+Uruguay+Posadas+Misiones">Cómo llegar</a>
-</div>
-</div></section>
+<!-- ===== EQUIPO ===== -->
+<section id="equipo" class="bg-white py-24"><div class="mx-auto max-w-6xl px-6"><div class="rv max-w-2xl"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">El equipo</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Las personas detrás del proyecto</h2></div>
+<div class="rv mt-8 flex flex-wrap items-center gap-4 rounded-2xl bg-forest p-6 text-white"><svg class="w-8 h-8 flex-none text-sand" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+  <path d="M22 10v6" />
+  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+</svg><div><p class="font-display text-lg font-bold">Instituto Superior Santa Catalina · Posadas, Misiones</p><p class="text-sm text-gray-200">5º Año Economía y Administración T.T. · Proyecto y Gestión de Microemprendimientos · Expo Contable 2026</p></div></div>
+<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5"><div class="rv rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-forest to-sandd font-display text-xl font-bold text-white">VG</div><h3 class="mt-4 font-display text-lg font-bold text-forest">Valentín Gall</h3><p class="mx-auto mt-2 inline-block rounded-full bg-sand/25 px-3 py-1 text-xs font-semibold text-forest">Gerente General</p></div><div class="rv rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-forest to-sandd font-display text-xl font-bold text-white">BD</div><h3 class="mt-4 font-display text-lg font-bold text-forest">Brenda Duarte</h3><p class="mx-auto mt-2 inline-block rounded-full bg-sand/25 px-3 py-1 text-xs font-semibold text-forest">Marketing y Comunicación</p></div><div class="rv rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-forest to-sandd font-display text-xl font-bold text-white">GA</div><h3 class="mt-4 font-display text-lg font-bold text-forest">Gianluca Aldana</h3><p class="mx-auto mt-2 inline-block rounded-full bg-sand/25 px-3 py-1 text-xs font-semibold text-forest">Ventas y Logística</p></div><div class="rv rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-forest to-sandd font-display text-xl font-bold text-white">SR</div><h3 class="mt-4 font-display text-lg font-bold text-forest">Santiago Rodriguez</h3><p class="mx-auto mt-2 inline-block rounded-full bg-sand/25 px-3 py-1 text-xs font-semibold text-forest">Mantenimiento y Técnica</p></div><div class="rv rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-forest to-sandd font-display text-xl font-bold text-white">MV</div><h3 class="mt-4 font-display text-lg font-bold text-forest">Milagros Villagra</h3><p class="mx-auto mt-2 inline-block rounded-full bg-sand/25 px-3 py-1 text-xs font-semibold text-forest">Administración y Finanzas</p></div></div><p class="mt-6 text-sm text-gray-500">Docentes responsables: Patricia Fretes, Karina Gomez, Laura Chagas, Daniela Fabiu y Cabrera.</p></div></section>
 
-<div class="quote"><div class="wrap">
-<h2 class="sl">Libertad <span>sin enchufes.</span></h2>
-<h2 class="sl" style="margin-top:6px">Viajá lejos. <span>Cuidá el camino.</span></h2>
-<p>“La educación también es un viaje, y nosotros elegimos el destino.”</p>
-</div></div>
+<!-- ===== UBICACION ===== -->
+<section id="ubicacion" class="py-24"><div class="mx-auto max-w-6xl px-6"><div class="rv max-w-2xl"><p class="text-sm font-semibold uppercase tracking-widest text-sandd">Dónde estamos</p><h2 class="mt-2 font-display text-3xl font-bold md:text-4xl text-forest">Barrio Villa Dolores, Posadas</h2><p class="mt-3 text-gray-600">Av. Cmte. Buchardo y Av. República Oriental del Uruguay. Zona cercana a rutas de alto tránsito, con terreno amplio para exhibición y estacionamiento.</p></div>
+<div class="rv mt-10 grid gap-6 lg:grid-cols-2"><iframe src="https://maps.google.com/maps?q=Av.+Cmte.+Buchardo+y+Av.+Rep%C3%BAblica+Oriental+del+Uruguay,+Posadas,+Misiones&z=15&output=embed" title="Mapa de Aventura Mobile en Villa Dolores, Posadas" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-80 w-full rounded-2xl border-0 shadow-lg lg:h-full lg:min-h-[22rem]" allowfullscreen></iframe>
+<div class="flex flex-col gap-4"><img src="img/fachada.jpg" alt="Diseño de la fachada del local" loading="lazy" class="h-64 w-full rounded-2xl object-cover shadow-lg"><a href="https://www.google.com/maps/search/?api=1&query=Av+Comandante+Buchardo+y+Av+Republica+Oriental+del+Uruguay+Posadas+Misiones" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition bg-forest text-white hover:bg-forest/90"><svg class="w-5 h-5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" />
+</svg>Cómo llegar</a></div></div></div></section>
 
-<footer id="contacto">
-<div class="wrap foot">
-<div class="f-col">
-<img src="img/logo-instituto.jpg" alt="Logo del Instituto Superior Santa Catalina">
-<strong>Aventura Mobile Argentina S.A.S.</strong>
-<p>Expo Contable 2026<br>Instituto Superior Santa Catalina<br>Posadas, Misiones</p>
-</div>
-<div class="f-col">
-<h3>Contacto</h3>
-<a id="link-tel" href="tel:+543765179631"> 3765 179631</a>
-<a id="link-wa" href="https://wa.me/5493765179631"> WhatsApp</a>
-<a id="link-ig" href="#" hidden> Instagram</a>
-</div>
-<div class="f-col">
-<h3>Ubicación</h3>
-<p>Barrio Villa Dolores<br>Av. Cmte. Buchardo y Av. República Oriental del Uruguay<br>Posadas, Misiones</p>
-</div>
-</div>
-<div class="wrap copy">© <span id="anio">2026</span> Aventura Mobile · Proyecto escolar</div>
-</footer>
-<script src="vendor/gsap.min.js" defer></script>
-<script src="vendor/ScrollTrigger.min.js" defer></script>
-<script src="vendor/swiper-bundle.min.js" defer></script>
-<script src="vendor/vanilla-tilt.min.js" defer></script>
-<script src="vendor/lottie_light.min.js" defer></script>
-<script src="vendor/chart.umd.js" defer></script>
+<!-- ===== FOOTER / CONTACTO ===== -->
+<footer id="contacto" class="bg-night text-gray-300"><div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3"><div><p class="font-display text-xl font-bold text-white">AVENTURA <span class="text-sand">MOBILE</span></p><p class="mt-3 text-sm">Tu vehículo. Tu casa. Tu aventura.</p><img src="img/logo-instituto.jpg" alt="Instituto Superior Santa Catalina" class="mt-5 h-12 rounded-lg bg-white p-1"></div>
+<div><h3 class="font-display font-bold text-white">Contacto</h3><div class="mt-4 flex flex-col gap-3 text-sm"><a class="js-tel flex items-center gap-2 hover:text-sand" href="tel:+543765179631"><svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+</svg><span>3765 179631</span></a><a class="js-wa flex items-center gap-2 hover:text-sand" href="https://wa.me/5493765179631" target="_blank" rel="noopener"><svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+</svg><span>WhatsApp</span></a><a class="js-ig flex items-center gap-2 hover:text-sand" href="#" hidden target="_blank" rel="noopener"><svg class="w-4 h-4" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+  <circle cx="12" cy="13" r="3" />
+</svg><span>Instagram</span></a></div></div>
+<div><h3 class="font-display font-bold text-white">Ubicación</h3><p class="mt-4 flex gap-2 text-sm"><svg class="w-4 h-4 flex-none mt-0.5" aria-hidden="true"
+ 
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" />
+</svg>Barrio Villa Dolores, Av. Cmte. Buchardo y Av. República Oriental del Uruguay, Posadas, Misiones</p></div></div>
+<div class="border-t border-white/10 py-5 text-center text-xs text-gray-500">© 2026 Aventura Mobile Argentina S.A.S. · Proyecto escolar · Instituto Superior Santa Catalina</div></footer>
 <script src="js/config.js" defer></script>
-<script src="js/main.js" defer></script>
-<script src="js/sol-animation.js" defer></script>
-<script src="js/animations.js" defer></script>
 <script src="js/ui.js" defer></script>
-<script src="vendor/alpine.min.js" defer></script>
-</body>
-</html>
+<script src="js/simulador.js" defer></script>
+<script src="js/cotizacion.js" defer></script>
+</body></html>

@@ -1,0 +1,6 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.on{opacity:1;transform:none}
+summary::-webkit-details-marker{display:none}
+body{padding-bottom:env(safe-area-inset-bottom,0)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+[hidden]{display:none!important}
